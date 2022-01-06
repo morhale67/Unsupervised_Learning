@@ -4,6 +4,8 @@ from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.manifold import LocallyLinearEmbedding
 from sklearn.manifold import Isomap
 from sklearn.manifold import SpectralEmbedding
+from sklearn.manifold import TSNE
+from sklearn.decomposition import FastICA
 
 
 def reduce_dimension(method, x_data):
@@ -17,6 +19,10 @@ def reduce_dimension(method, x_data):
         converted_data = cmds_reduction(x_data)
     elif method == 'isomap':
         converted_data = isomap_reduction(x_data)
+    elif method == 'tsne':
+        converted_data = tsne_reduction(x_data)
+    elif method == 'ica':
+        converted_data = ica_reduction(x_data)
     else:
         print("try again")
         converted_data = []
@@ -50,6 +56,18 @@ def cmds_reduction(x_data):
 
 def isomap_reduction(x_data, n_neighbors=5):
     embedding = Isomap(n_components=2, n_neighbors=n_neighbors)
+    converted_data = embedding.fit_transform(x_data)
+    return converted_data
+
+
+def tsne_reduction(x_data, n_neighbors=5):
+    embedding = TSNE(n_components=2, learning_rate='auto', init='random')
+    converted_data = embedding.fit_transform(x_data)
+    return converted_data
+
+
+def ica_reduction(x_data, n_neighbors=5):
+    embedding = FastICA(n_components=7, random_state=0)
     converted_data = embedding.fit_transform(x_data)
     return converted_data
 
