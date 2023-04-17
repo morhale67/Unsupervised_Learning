@@ -1,16 +1,6 @@
 # Unsupervised_Learning
-Comparison of a few data reduction algoritms and clustering methods, for unsupervised learning studies.
+This is a brief description of a study that compares various data reduction algorithms and clustering methods for unsupervised learning.
+The data reduction algorithms included in the study are PCA, MDS, ICA, t-SNE, Isomap, Laplacian, and LLE.
+The clustering methods tested are K-Means, Agglomerative, and DBSCAN.
 
-Data reduction algoritms:
-PCA
-MDS
-ICA
-T-SNE
-ISOMAP
-LAPLACIAN
-LLE
-
-Clustering methods:
-K-MEANS
-AGLOMERATIVE
-DBSCAN
+This work was completed as part of a course on unsupervised learning at Bar Ilan University's Mathematics Faculty.
